@@ -50,8 +50,11 @@ cat('Data is stationary at log transformation and differencing once')
 
 #Fiting ARIMA model
 arimaFit=auto.arima(lnGold)
-fit <- arima(log(gold_price), c(0, 1, 1),seasonal = list(order = c(0, 1, 1), period = 1))
+
+#Comparing with mannual fitted model
+fit <- arima(log(gold_price), c(0, 1, 1))
 summary(fit)
+
 
 #Forecast using model
 pred <- predict(fit, n.ahead = 5)
